@@ -1,6 +1,7 @@
 package io.devmike01.mapboxautocompletetextfield
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +35,10 @@ class MainActivity : ComponentActivity() {
                     }
                     Column(verticalArrangement = Arrangement.Top) {
                         AutoCompleteTextField(autocomplete = mapboxAC,
-                            modifier = Modifier.wrapContentHeight().fillMaxWidth())
+                            modifier = Modifier.wrapContentHeight().fillMaxWidth(),
+                        onSelectItem = {
+                            Toast.makeText(this@MainActivity, it.placeName ?: "", Toast.LENGTH_LONG).show()
+                        })
                     }
                 }
             }
