@@ -4,6 +4,18 @@ Place auto complete for compose backed by the Mapbox API.
 ### Screenshot
 <img src="/assets/Screenshot_20230505_173705.png" 
 width="250px" height="500px"/>
+### Implementation
+- Add `mapboxautocomplete` to your gradle file
+- Import the library where you want to use it
+- Add the below code in your `composable` function.
+And you're good to go.
+```kotlin
+AutoCompleteTextField(autocomplete = mapboxAC,
+                            modifier = Modifier.wrapContentHeight().fillMaxWidth(),
+                        onSelectItem = {
+                            Toast.makeText(this@MainActivity, it.placeName ?: "", Toast.LENGTH_LONG).show()
+                        })
+```
 ### License
 ```
 Copyright [yyyy] [name of copyright owner]
