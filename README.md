@@ -2,8 +2,8 @@
 ### Description
 Place auto complete for compose backed by the Mapbox API.
 ### Screenshot
-<img src="/assets/Screenshot_20230505_173705.png" width="250px" height="500px"/>
-<br/>
+<img src="/assets/Screenshot_20230505_173705.png" 
+width="250px" height="500px"/>
 ### License
 ```
 Copyright [yyyy] [name of copyright owner]
