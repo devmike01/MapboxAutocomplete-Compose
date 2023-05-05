@@ -1,20 +1,18 @@
 package io.devmike01.mapboxautocomplete.textfield
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
-import io.devmike01.mapboxautocomplete.models.Place
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
-import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
-class AutoCompleteTextFieldController (private val autocompleteRepo: AutoCompleteTextFieldRepo) : CoreController<AutocompleteState>() {
+class AutoCompleteTextFieldController (private val autocompleteRepo: AutoCompleteTextFieldRepo,
+                                       private val coroutineContext: CoroutineContext = Dispatchers.Main)
+    : CoreController<AutocompleteState>(coroutineContext) {
 
-    val innerState = MutableStateFlow<AutocompleteState>(AutocompleteState())
+    private val innerState = MutableStateFlow<AutocompleteState>(AutocompleteState())
 
     private val handler = CoroutineExceptionHandler { _, exception ->
         innerState.update {
@@ -28,6 +26,7 @@ class AutoCompleteTextFieldController (private val autocompleteRepo: AutoComplet
         if(query.isBlank())return
         runOnUi(handler) {
             val place = autocompleteRepo.queryMapbox(query)
+            print("NEW_MESSAGE10 => $place")
             innerState.update {
                 it.copy(place = PlaceState.Success(place))
             }

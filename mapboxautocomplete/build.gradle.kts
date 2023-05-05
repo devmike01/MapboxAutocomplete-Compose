@@ -68,7 +68,9 @@ android {
 
 dependencies {
     val hiltVersion = 2.44
-    val compose = "1.4.7"
+
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation ("org.mockito:mockito-core:3.+")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
     implementation("androidx.compose.ui:ui:1.4.3")

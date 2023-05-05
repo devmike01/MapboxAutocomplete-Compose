@@ -15,6 +15,7 @@ class AutoCompleteTextFieldRepo @Inject constructor(private val service: MapboxS
         coroutineScope.launch {
             try {
                 val place = service.getPlaceByName(query)
+                print("NEW_MESSAGE__ => $place\n")
                 deferred.complete(place)
             }catch (ex: Exception){
                 deferred.completeExceptionally(ex)
