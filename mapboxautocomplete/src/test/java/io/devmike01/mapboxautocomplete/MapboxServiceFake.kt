@@ -3,15 +3,19 @@ package io.devmike01.mapboxautocomplete
 import io.devmike01.mapboxautocomplete.models.Feature
 import io.devmike01.mapboxautocomplete.models.Place
 import io.devmike01.mapboxautocomplete.repo.MapboxService
+import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.delay
 
-class MapboxServiceFake() : MapboxService {
+open class MapboxServiceFake() : MapboxService {
     override suspend fun getPlaceByName(placeName: String): Place {
         print("NEW_MESSAGE => TEAR DOWN!! $placeName")
+        val deferred = CompletableDeferred<Place>()
 
-        return if(placeName.equals("-")){
-            throw Exception("The API has failed")
+        if(placeName.equals("-")){
+            deferred.completeExceptionally(Exception("The API has failed"))
         }else{
-            Place(placeName = "Oshodi", features = listOf(Feature()))
+            deferred.complete( Place(placeName = "Oshodi", features = listOf(Feature())))
         }
+        return deferred.await()
     }
 }

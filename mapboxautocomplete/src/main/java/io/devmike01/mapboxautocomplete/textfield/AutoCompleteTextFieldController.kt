@@ -1,5 +1,6 @@
 package io.devmike01.mapboxautocomplete.textfield
 
+import io.devmike01.mapboxautocomplete.models.Place
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -23,6 +24,7 @@ class AutoCompleteTextFieldController (private val autocompleteRepo: AutoComplet
         get() = innerState
 
     override fun queryMapbox(query: String) {
+
         if(query.isBlank())return
         runOnUi(handler) {
             val place = autocompleteRepo.queryMapbox(query)
