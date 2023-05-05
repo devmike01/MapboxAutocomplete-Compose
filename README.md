@@ -1,7 +1,9 @@
 MapboxAutocomplete - Compose
 Place auto complete for compose backed by the Mapbox API.
-<img src="/assets/Screenshot_20230505_173705.png" width="200px" height="450px"/>
+<img src="/assets/Screenshot_20230505_173705.png" width="250px" height="400px"/>
 <br/>
+### License
+```
 Copyright [yyyy] [name of copyright owner]
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,4 +16,4 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.
+limitations under the License.```
