@@ -1,6 +1,6 @@
 # MapboxAutocomplete - Compose
 ### Description
-Place auto complete for compose backed by the Mapbox API.
+Place auto complete for Jetpack compose backed by the Mapbox API.
 ### Screenshot
 <img src="/assets/Screenshot_20230505_173705.png" 
 width="250px" height="500px"/>
