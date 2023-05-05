@@ -1,6 +1,7 @@
 package io.devmike01.mapboxautocomplete.interceptors
 
-import com.saybits.location_system.BuildConfig
+//import io.devmike01.mapboxautocomplete.
+import io.devmike.mapboxautocomplete.BuildConfig
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Response

@@ -46,13 +46,16 @@ fun AutoCompleteTextField(modifier: Modifier = Modifier,
                           onError: @Composable ((Throwable) -> Unit)? =null,
                           onSelectItem: ((Feature) -> Unit)? =null,
 ) {
-
+    val showSuggestions = remember {
+        mutableStateOf( false)
+    }
     Column(modifier = modifier) {
         TextField(
             value = autocomplete.value,
             onValueChange = {
                 autocomplete.value =it
                 onValueChanged?.invoke(it)
+                showSuggestions.value =true
             },
             label = label,
             maxLines = maxLines,
@@ -77,9 +80,7 @@ fun AutoCompleteTextField(modifier: Modifier = Modifier,
         val autocompleteViewModel: CoreController<AutocompleteState> = provideAutoCompleteController()
 
         autocompleteViewModel.queryMapbox(autocomplete.value)
-        val showSuggestions = remember {
-            mutableStateOf( true)
-        }
+
         AnimatedVisibility(visible = showSuggestions.value) {
             AutoCompleteContent(autocompleteViewModel.state, onError = onError,
                 content = content, onSelectItem = { feature ->

@@ -4,11 +4,10 @@ plugins {
     id ("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.saybits.location_system"
+    namespace = "io.devmike.mapboxautocomplete"
     compileSdk = 33
 
     val mapboxToken: String = gradleLocalProperties(rootDir).getProperty("access_token")

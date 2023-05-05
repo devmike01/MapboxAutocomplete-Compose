@@ -1,9 +1,7 @@
 package io.devmike01.mapboxautocomplete.textfield
 
-import io.devmike01.mapboxautocomplete.models.Place
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

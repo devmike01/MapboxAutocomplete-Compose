@@ -4,7 +4,6 @@ import io.devmike01.mapboxautocomplete.models.Feature
 import io.devmike01.mapboxautocomplete.models.Place
 import io.devmike01.mapboxautocomplete.repo.MapboxService
 import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.delay
 
 open class MapboxServiceFake() : MapboxService {
     override suspend fun getPlaceByName(placeName: String): Place {
