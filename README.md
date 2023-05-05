@@ -10,7 +10,10 @@ width="250px" height="500px"/>
 - Add the below code in your `composable` function.
 And you're good to go.
 ```kotlin
-AutoCompleteTextField(autocomplete = mapboxAC,
+  val mapboxValue = remember {
+    mutableStateOf("")
+}
+AutoCompleteTextField(autocomplete = mapboxValue,
                             modifier = Modifier.wrapContentHeight().fillMaxWidth(),
                         onSelectItem = {
                             Toast.makeText(this@MainActivity, it.placeName ?: "", Toast.LENGTH_LONG).show()
