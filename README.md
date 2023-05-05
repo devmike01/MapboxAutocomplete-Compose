@@ -1,6 +1,6 @@
 MapboxAutocomplete - Compose
 Place auto complete for compose backed by the Mapbox API.
-<img src="/assets/Screenshot_20230505_173705.png" width="250px" height="400px"/>
+<img src="/assets/Screenshot_20230505_173705.png" width="250px" height="500px"/>
 <br/>
 ### License
 ```
