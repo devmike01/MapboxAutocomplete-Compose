@@ -5,7 +5,7 @@ Place auto complete for compose backed by the Mapbox API.
 <img src="/assets/Screenshot_20230505_173705.png" 
 width="250px" height="500px"/>
 ### Implementation
-- Add `mapboxautocomplete` to your gradle file
+- Add `mapboxautocomplete` to your `.gradle` or `.gradle.kts`file
 - Import the library where you want to use it
 - Add the below code in your `composable` function.
 And you're good to go.
