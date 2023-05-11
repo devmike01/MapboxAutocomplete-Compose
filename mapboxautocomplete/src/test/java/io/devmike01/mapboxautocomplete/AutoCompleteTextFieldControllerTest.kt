@@ -2,9 +2,13 @@ package io.devmike01.mapboxautocomplete
 
 import io.devmike01.mapboxautocomplete.models.Feature
 import io.devmike01.mapboxautocomplete.models.Place
+import io.devmike01.mapboxautocomplete.models.SearchProperty
+import io.devmike01.mapboxautocomplete.models.SearchTypes
 import io.devmike01.mapboxautocomplete.repo.MapboxService
 import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextFieldController
 import io.devmike01.mapboxautocomplete.repo.AutoCompleteTextFieldRepo
+import io.devmike01.mapboxautocomplete.repo.Suggestion
+import io.devmike01.mapboxautocomplete.repo.SuggestionResponse
 import io.devmike01.mapboxautocomplete.textfield.AutocompleteState
 import io.devmike01.mapboxautocomplete.textfield.CoreController
 import io.devmike01.mapboxautocomplete.textfield.PlaceState
@@ -46,9 +50,12 @@ class AutoCompleteTextFieldControllerTest {
     @Test(expected=Exception::class)
     fun `test query map box failed`(){
         runTest {
-            `when`(autoCompleteRepo?.queryMapbox("-"))
+            `when`(autoCompleteRepo?.queryMapbox("-",
+                searchProperty = SearchProperty()
+            ))
                 .thenThrow(Exception("An error has occurred"))
-            controller?.queryMapbox("-")
+            controller?.queryMapbox("-",
+                searchProperty = SearchProperty())
             val exactValue = controller?.state?.value
             assertTrue(exactValue?.place is PlaceState.Error)
             val errorResult = (exactValue?.place as PlaceState.Error)
@@ -63,21 +70,40 @@ class AutoCompleteTextFieldControllerTest {
     fun `test query map box success`(){
         assertTrue(controller?.state?.value?.place is PlaceState.Nothing)
         runTest {
-            `when`(mapService.getPlaceByName("Hello"))
-                .thenReturn(Place(placeName = "Oshodi",
-                    features = listOf(Feature())))
-            controller?.queryMapbox("Hello")
-            verify(mapService, atLeastOnce())?.getPlaceByName("Hello")
+//            `when`(getSuggestion())
+//                .thenReturn(
+//                    SuggestionResponse(suggestions =
+//                    listOf(Suggestion(fullAddress =
+//                    "3 Oshodi road, Apapa, Lagos state, Nigeria")))
+//                )
+            controller?.queryMapbox("Hello", searchProperty = SearchProperty(searchTypes = SearchTypes.Address))
+            verify(mapService, atLeastOnce())?.getPlace(  "Hello",
+                "en",
+                10,
+                "",
+                "",
+                "",
+                "",
+                "address",
+                "",
+                "")
             delay(100)
             val exactValue = controller?.state?.value
-            assertThat(exactValue?.place, instanceOf( PlaceState.Success(data = Place())::class.java))
+            assertThat(exactValue?.place, instanceOf( PlaceState.Success(data = SuggestionResponse())::class.java))
+
+            println("NEWVALUE => ${exactValue?.place}")
             val result = (exactValue?.place as PlaceState.Success)
-            assertEquals(result.data.placeName, "Oshodi")
-            assertTrue(result.data.features.isNotEmpty())
+            assertTrue(result.data.suggestions?.isNotEmpty() ==true)
+            println("NEWVALUE => ${result.data.suggestions?.size}")
+            assertEquals(result.data.suggestions?.first()?.fullAddress, "5 Oshodi road, Apapa, Lagos state, Nigeria")
+            assertEquals(result.data.suggestions?.last()?.fullAddress, "Ikeja Shopping Mall")
         }
     }
 
 
+    private suspend fun getSuggestion(): SuggestionResponse{
+        return mapService.getPlace("Hello", "", 10, "", "", "", "", "", "", "")
+    }
     @After
     fun tearDown(){
         controller = null

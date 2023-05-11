@@ -260,16 +260,13 @@ class Street {
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder("suggestions", "attribution")
-class SuggestionResponse {
-    @get:JsonProperty("suggestions")
-    @set:JsonProperty("suggestions")
+data class SuggestionResponse (
     @JsonProperty("suggestions")
-    var suggestions: List<Suggestion>? = null
-
-    @get:JsonProperty("attribution")
-    @set:JsonProperty("attribution")
+    val suggestions: List<Suggestion>? = null,
     @JsonProperty("attribution")
-    var attribution: String? = null
+    val attribution: String? = null
+
+){
 
     @JsonIgnore
     private val additionalProperties: MutableMap<String, Any> = LinkedHashMap()

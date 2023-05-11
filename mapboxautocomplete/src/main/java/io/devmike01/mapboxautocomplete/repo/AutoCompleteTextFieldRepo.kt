@@ -34,8 +34,8 @@ open class AutoCompleteTextFieldRepo @Inject constructor(private val service: Ma
                         }
                         suggestion.copy(fullAddress = newPlace)
                     }
-                    place.suggestions = nonEmptyAddresses
-                    deferred.complete(place)
+
+                    deferred.complete(place.copy(suggestions = nonEmptyAddresses))
                 }
             }catch (ex: Exception){
                 deferred.completeExceptionally(ex)
