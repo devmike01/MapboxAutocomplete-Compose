@@ -8,7 +8,7 @@ import io.devmike01.mapboxautocomplete.interceptors.HeaderInterceptor
 import io.devmike01.mapboxautocomplete.interceptors.LogInterceptor
 import io.devmike01.mapboxautocomplete.repo.MapboxService
 import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextFieldController
-import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextFieldRepo
+import io.devmike01.mapboxautocomplete.repo.AutoCompleteTextFieldRepo
 import io.devmike01.mapboxautocomplete.textfield.AutocompleteState
 import io.devmike01.mapboxautocomplete.textfield.CoreController
 import kotlinx.coroutines.Dispatchers

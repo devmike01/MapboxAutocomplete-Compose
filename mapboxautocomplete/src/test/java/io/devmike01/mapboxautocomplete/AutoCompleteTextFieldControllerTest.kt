@@ -4,7 +4,7 @@ import io.devmike01.mapboxautocomplete.models.Feature
 import io.devmike01.mapboxautocomplete.models.Place
 import io.devmike01.mapboxautocomplete.repo.MapboxService
 import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextFieldController
-import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextFieldRepo
+import io.devmike01.mapboxautocomplete.repo.AutoCompleteTextFieldRepo
 import io.devmike01.mapboxautocomplete.textfield.AutocompleteState
 import io.devmike01.mapboxautocomplete.textfield.CoreController
 import io.devmike01.mapboxautocomplete.textfield.PlaceState

@@ -1,6 +1,7 @@
 package io.devmike01.mapboxautocomplete.interceptors
 
 
+import io.devmike.mapboxautocomplete.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
@@ -20,13 +21,15 @@ internal class LogInterceptor : Interceptor {
         )
         val response: Response = chain.proceed(request)
         val t2 = System.nanoTime()
-        logger.info(
-            String.format(
-                "Received response for %s in %.1fms%n%s",
-                response.request.url, (t2 - t1) / 1e6,
-                response.headers
+        if(BuildConfig.DEBUG){
+            logger.info(
+                String.format(
+                    "Received response for %s in %.1fms%n%s",
+                    response.request.url, (t2 - t1) / 1e6,
+                    response.headers
+                )
             )
-        )
+        }
         return response
     }
 }

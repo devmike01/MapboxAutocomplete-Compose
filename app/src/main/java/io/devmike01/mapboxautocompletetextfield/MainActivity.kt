@@ -19,6 +19,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import io.devmike01.mapboxautocomplete.models.SearchProperty
+import io.devmike01.mapboxautocomplete.models.SearchTypes
 import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextField
 import io.devmike01.mapboxautocompletetextfield.ui.theme.MapboxAutoCompleteTextFieldTheme
 
@@ -37,10 +39,14 @@ class MainActivity : ComponentActivity() {
                     }
                     Column(verticalArrangement = Arrangement.Top) {
                         AutoCompleteTextField(autocomplete = mapboxAC,
-                            modifier = Modifier.wrapContentHeight().fillMaxWidth().background(Color.Blue),
+                            modifier = Modifier.wrapContentHeight().fillMaxWidth(),
                         onSelectItem = {
-                            Toast.makeText(this@MainActivity, it.placeName ?: "", Toast.LENGTH_LONG).show()
-                        })
+                            Toast.makeText(this@MainActivity,
+                                it.fullAddress ?: "", Toast.LENGTH_LONG).show()
+                            mapboxAC.value =""
+                        }, searchProperty = SearchProperty(country = "gb",
+                                searchTypes = SearchTypes.Place)
+                        )
 
                     }
 

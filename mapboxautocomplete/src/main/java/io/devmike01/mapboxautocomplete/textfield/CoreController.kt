@@ -1,5 +1,6 @@
 package io.devmike01.mapboxautocomplete.textfield
 
+import io.devmike01.mapboxautocomplete.models.SearchProperty
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,7 @@ abstract class CoreController<AutocompleteState>(private val coroutineContext: C
         }
     }
     abstract val state : StateFlow<AutocompleteState>
-    abstract fun queryMapbox(query: String)
+    abstract fun queryMapbox(query: String, searchProperty: SearchProperty)
 
     fun onClose(){
         job?.cancel()

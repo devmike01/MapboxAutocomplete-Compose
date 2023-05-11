@@ -1,5 +1,7 @@
 package io.devmike01.mapboxautocomplete.textfield
 
+import io.devmike01.mapboxautocomplete.models.SearchProperty
+import io.devmike01.mapboxautocomplete.repo.AutoCompleteTextFieldRepo
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,11 +23,11 @@ class AutoCompleteTextFieldController (private val autocompleteRepo: AutoComplet
     override val state: StateFlow<AutocompleteState>
         get() = innerState
 
-    override fun queryMapbox(query: String) {
+    override fun queryMapbox(query: String, searchProperty: SearchProperty) {
 
         if(query.isBlank())return
         runOnUi(handler) {
-            val place = autocompleteRepo.queryMapbox(query)
+            val place = autocompleteRepo.queryMapbox(query, searchProperty)
             print("NEW_MESSAGE10 => $place")
             innerState.update {
                 it.copy(place = PlaceState.Success(place))
