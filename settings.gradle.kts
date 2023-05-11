@@ -22,17 +22,10 @@ dependencyResolutionManagement {
         maven(url ="https://jitpack.io")
         maven {
             url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
-//            authentication {
-//                create<BasicAuthentication>("mapbox")
-//            }
-//            credentials {
-//                // Do not change the username below.
-//                // This should always be `mapbox` (not your username).
-//                username ="mapbox"
-//            }
         }
     }
 }
+
 rootProject.name = "MapboxAutoCompleteTextField"
 include(":app")
 include(":mapboxautocomplete")

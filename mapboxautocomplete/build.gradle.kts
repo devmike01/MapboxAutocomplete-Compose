@@ -1,9 +1,34 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
+    id("maven-publish")
     id ("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+}
+
+
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "MapboxAutocomplete"
+                url = uri("https://github.com/devmike01/MapboxAutocomplete-Compose")
+
+            }
+        }
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "io.devmike"
+                artifactId = "mapboxautocomplete"
+                version = "1.1"
+
+                from(components["java"])
+            }
+
+        }
+    }
 }
 
 android {
