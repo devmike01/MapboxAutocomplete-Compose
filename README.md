@@ -6,6 +6,21 @@ Place auto complete for Jetpack compose backed by the Mapbox API.
 width="250px" height="500px"/>
 ### Implementation
 - Add `mapboxautocomplete` to your `.gradle` or `.gradle.kts`file
+- - Step 1
+```groovy
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+- - Step 2
+```groovy
+dependencies {
+	        implementation 'com.github.devmike01:MapboxAutocomplete-Compose:Faling'
+	}
+```
 - Import the library where you want to use it
 - Add your mapbox API KEY to your `local.properties` file.
 - Add the below code in your `composable` function.
@@ -15,10 +30,14 @@ And you're good to go.
     mutableStateOf("")
 }
 AutoCompleteTextField(autocomplete = mapboxValue,
-                            modifier = Modifier.wrapContentHeight().fillMaxWidth(),
-                        onSelectItem = {
-                            Toast.makeText(this@MainActivity, it.placeName ?: "", Toast.LENGTH_LONG).show()
-                        })
+    modifier = Modifier.wrapContentHeight().fillMaxWidth(),
+    onSelectItem = {
+        Toast.makeText(this@MainActivity,
+            it.fullAddress ?: "", Toast.LENGTH_LONG).show()
+        mapboxAC.value =""
+    }, searchProperty = SearchProperty(country = "gb",
+        searchTypes = SearchTypes.Place)
+)
 ```
 ### License
 ```
