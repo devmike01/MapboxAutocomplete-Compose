@@ -165,7 +165,7 @@ fun AutoCompleteContent(stateFlow: StateFlow<AutocompleteState>,
 @Composable
 fun PlaceItem(modifier: Modifier, suggestion: Suggestion?, isLast: Boolean,
               onSelectItem: ((Suggestion) -> Unit)?){
-    if (suggestion ==null)return;
+    if (suggestion ==null)return
     Column(modifier = modifier
         .fillMaxWidth()
         .wrapContentHeight()

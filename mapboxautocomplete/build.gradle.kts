@@ -99,7 +99,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.google.android.material:material:1.8.0")
+    implementation ("com.google.android.material:material:1.9.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.5")
