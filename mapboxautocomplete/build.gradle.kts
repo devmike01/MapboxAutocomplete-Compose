@@ -1,35 +1,16 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.android.build.gradle.internal.scope.publishArtifactToDefaultVariant
+import com.android.build.gradle.internal.utils.createPublishingInfoForLibrary
+import org.jetbrains.kotlin.asJava.classes.lazyPub
 
 plugins {
-    id("maven-publish")
     id ("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
 
 
-subprojects {
-    apply(plugin = "maven-publish")
-    configure<PublishingExtension> {
-        repositories {
-            maven {
-                name = "MapboxAutocomplete"
-                url = uri("https://github.com/devmike01/MapboxAutocomplete-Compose")
 
-            }
-        }
-        publications {
-            create<MavenPublication>("maven") {
-                groupId = "io.devmike"
-                artifactId = "mapboxautocomplete"
-                version = "1.1"
-
-                from(components["java"])
-            }
-
-        }
-    }
-}
 
 android {
     namespace = "io.devmike.mapboxautocomplete"
@@ -37,6 +18,13 @@ android {
 
     val mapboxToken: String = gradleLocalProperties(rootDir).getProperty("access_token")
     val mapboxUrl: String = gradleLocalProperties(rootDir).getProperty("mapbox_base_url")
+    publishing {
+        // Publishes all build variants with "default" component
+        multipleVariants {
+            allVariants()
+        }
+    }
+
 
     buildFeatures {
         buildConfig = true
@@ -44,7 +32,6 @@ android {
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // consumerProguardFiles = "consumer-rules.pro"
@@ -69,6 +56,8 @@ android {
         }
 
     }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -89,6 +78,7 @@ android {
         kotlinCompilerExtensionVersion = "1.4.6"
     }
 }
+
 
 dependencies {
     val hiltVersion = 2.44
