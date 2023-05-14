@@ -28,9 +28,6 @@ jobs:
     # These next lines define the Android machine image executor.
     # See: https://circleci.com/docs/2.0/executor-types/
     executor:
-      java17:
-        docker:
-          - image: 'cimg/openjdk:17.0'
       name: android/android-machine
 
     # Add steps to the job
