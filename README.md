@@ -1,6 +1,7 @@
 # MapboxAutocomplete - Compose
 ### Description
 Place auto complete for Jetpack compose backed by the Mapbox API.
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/devmike01/MapboxAutocomplete-Compose/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/devmike01/MapboxAutocomplete-Compose/tree/master)
 ### Screenshot
 <img src="/assets/Screenshot_20230505_173705.png" 
 width="250px" height="500px"/>
