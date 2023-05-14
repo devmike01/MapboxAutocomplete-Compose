@@ -14,6 +14,7 @@ import io.devmike01.mapboxautocomplete.textfield.CoreController
 import io.devmike01.mapboxautocomplete.textfield.PlaceState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.instanceOf
@@ -70,14 +71,15 @@ class AutoCompleteTextFieldControllerTest {
     @Test
     fun `test query map box success`(){
         assertTrue(controller?.state?.value?.place is PlaceState.Nothing)
-        runTest {
+        runBlocking {
 //            `when`(getSuggestion())
 //                .thenReturn(
 //                    SuggestionResponse(suggestions =
 //                    listOf(Suggestion(fullAddress =
 //                    "3 Oshodi road, Apapa, Lagos state, Nigeria")))
 //                )
-            controller?.queryMapbox("Hello", searchProperty = SearchProperty(searchTypes = SearchTypes.Address))
+            controller?.queryMapbox("Hello",
+                searchProperty = SearchProperty(searchTypes = SearchTypes.Address))
             verify(mapService, atLeastOnce())?.getPlace(  "Hello",
                 "en",
                 10,
@@ -88,7 +90,7 @@ class AutoCompleteTextFieldControllerTest {
                 "address",
                 "",
                 "")
-            delay(100)
+            delay(2000)
             val exactValue = controller?.state?.value
             assertThat(exactValue?.place, instanceOf( PlaceState.Success(data = SuggestionResponse())::class.java))
 
