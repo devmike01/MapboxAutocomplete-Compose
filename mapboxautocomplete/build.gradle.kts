@@ -18,12 +18,6 @@ android {
 
     val mapboxToken: String = gradleLocalProperties(rootDir).getProperty("access_token")
     val mapboxUrl: String = gradleLocalProperties(rootDir).getProperty("mapbox_base_url")
-    publishing {
-        // Publishes all build variants with "default" component
-        multipleVariants {
-            allVariants()
-        }
-    }
 
 
     buildFeatures {
