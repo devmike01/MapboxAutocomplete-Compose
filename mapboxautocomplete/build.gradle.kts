@@ -7,10 +7,12 @@ plugins {
     id ("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("maven-publish")
 }
 
 
-
+group = "io.devmike.mapboxautocomplete"
+version = "1.0.2-alpha"
 
 android {
     namespace = "io.devmike.mapboxautocomplete"
@@ -84,7 +86,18 @@ android {
     }
 }
 
-
+afterEvaluate {
+    publishing {
+        publications.create<MavenPublication>("release") {
+            from(components["release"])
+            groupId = "io.devmike.mapboxautocomplete"
+            artifactId = "mapboxautocomplete"
+            version = "1.0.3-alpha"
+            pom.packaging = "jar"
+            artifact("$buildDir/libs/mapboxautocomplete.jar")
+        }
+    }
+}
 dependencies {
     val hiltVersion = 2.44
 
