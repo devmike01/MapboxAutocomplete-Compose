@@ -16,13 +16,6 @@ jobs:
       image: android:2022.09.1
     steps:
       - checkout
-      - run:
-          name: Install OpenJDK 17
-          command: |
-            sudo apt-get update && sudo apt-get install openjdk-17-jdk
-            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-            sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-            java -version
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
     # These next lines define the Android machine image executor.
@@ -57,5 +50,8 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build-and-test
+      - build-and-test:
+          command: '-X compile'
+          executor: java17
+    
 
