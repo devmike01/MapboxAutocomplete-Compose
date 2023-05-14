@@ -92,7 +92,7 @@ afterEvaluate {
             //from(components::class.java)
             groupId = "io.devmike.compose"
             artifactId = "mapboxautocomplete"
-            version = "1.0.-alpha"
+            version = "1.0.9-alpha"
             pom.packaging = "jar"
             artifact("$buildDir/libs/mapboxautocomplete.jar")
         }
