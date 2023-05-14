@@ -37,6 +37,7 @@ class AutoCompleteTextFieldControllerTest {
     private var autoCompleteRepo : AutoCompleteTextFieldRepo? = null
     private val mapService : MapboxService = spy(MapboxServiceFake::class.java)
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Before
     fun init(){
        autoCompleteRepo = AutoCompleteTextFieldRepo(service = mapService)
