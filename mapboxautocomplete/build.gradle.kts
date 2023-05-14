@@ -11,7 +11,7 @@ plugins {
 }
 
 
-group = "\"io.devmike.compose"
+group = "io.devmike.compose"
 version = "1.0.2-alpha"
 
 android {
