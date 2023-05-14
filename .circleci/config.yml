@@ -16,12 +16,21 @@ jobs:
       image: android:2022.09.1
     steps:
       - checkout
-      - run: java --version
+      - run:
+          name: Install OpenJDK 17
+          command: |
+            sudo apt-get update && sudo apt-get install openjdk-17-jdk
+            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+            sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+            java -version
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
     # These next lines define the Android machine image executor.
     # See: https://circleci.com/docs/2.0/executor-types/
     executor:
+      java17:
+        docker:
+          - image: 'cimg/openjdk:17.0'
       name: android/android-machine
 
     # Add steps to the job
