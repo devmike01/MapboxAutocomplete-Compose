@@ -88,11 +88,11 @@ android {
 
 afterEvaluate {
     publishing {
-        publications.create<MavenPublication>("release") {
-            from(components["release"])
+        publications.create<MavenPublication>("maven") {
+            //from(components::class.java)
             groupId = "io.devmike.compose"
             artifactId = "mapboxautocomplete"
-            version = "1.0.3-alpha"
+            version = "1.0.-alpha"
             pom.packaging = "jar"
             artifact("$buildDir/libs/mapboxautocomplete.jar")
         }
