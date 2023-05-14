@@ -5,6 +5,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven (url = "https://jitpack.io")
     }
 }
 
@@ -23,6 +24,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven(url ="https://jitpack.io")
+
         maven {
             url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
         }

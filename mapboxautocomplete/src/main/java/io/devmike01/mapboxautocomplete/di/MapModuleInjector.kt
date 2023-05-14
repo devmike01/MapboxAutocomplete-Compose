@@ -2,7 +2,7 @@ package io.devmike01.mapboxautocomplete.di
 
 import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.core.json.JsonReadFeature
-import io.devmike.mapboxautocomplete.BuildConfig
+import io.devmike.compose.BuildConfig
 import io.devmike01.mapboxautocomplete.di.MapModuleInjector.provideAutoCompleteTextFieldRepo
 import io.devmike01.mapboxautocomplete.interceptors.HeaderInterceptor
 import io.devmike01.mapboxautocomplete.interceptors.LogInterceptor

@@ -1,7 +1,6 @@
 package io.devmike01.mapboxautocomplete.interceptors
 
-
-import io.devmike.mapboxautocomplete.BuildConfig
+import io.devmike.compose.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

@@ -11,11 +11,11 @@ plugins {
 }
 
 
-group = "io.devmike.mapboxautocomplete"
+group = "\"io.devmike.compose"
 version = "1.0.2-alpha"
 
 android {
-    namespace = "io.devmike.mapboxautocomplete"
+    namespace = "io.devmike.compose"
     compileSdk = 33
 
     val mapboxToken: String = gradleLocalProperties(rootDir).getProperty("access_token")
@@ -90,7 +90,7 @@ afterEvaluate {
     publishing {
         publications.create<MavenPublication>("release") {
             from(components["release"])
-            groupId = "io.devmike.mapboxautocomplete"
+            groupId = "io.devmike.compose"
             artifactId = "mapboxautocomplete"
             version = "1.0.3-alpha"
             pom.packaging = "jar"
