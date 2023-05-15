@@ -36,7 +36,7 @@ android {
     buildTypes {
         val baseMapboxUrl = "\"$mapboxUrl\""
         val mapboxAccessToken = "\"$mapboxToken\""
-        release {
+        getByName("release") {
             buildConfigField("String", "MAPBOX_TOKEN", mapboxAccessToken)
             buildConfigField("String", "MAPBOX_URL", baseMapboxUrl)
             isMinifyEnabled = false
@@ -46,7 +46,7 @@ android {
             )
         }
 
-        debug {
+        getByName("release") {
             buildConfigField("String", "MAPBOX_TOKEN", mapboxAccessToken)
             buildConfigField("String", "MAPBOX_URL", baseMapboxUrl)
         }
@@ -88,16 +88,17 @@ android {
 
 afterEvaluate {
     publishing {
-        publications.create<MavenPublication>("maven") {
+        publications.create<MavenPublication>("mapboxautocomplete") {
             //from(components::class.java)
             groupId = "io.devmike.compose"
             artifactId = "mapboxautocomplete"
-            version = "1.0.9-alpha"
+            version = "1.1.1-alpha"
             pom.packaging = "jar"
             artifact("$buildDir/libs/mapboxautocomplete.jar")
         }
     }
 }
+
 dependencies {
     val hiltVersion = 2.44
 
