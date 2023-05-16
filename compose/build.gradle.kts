@@ -85,19 +85,19 @@ android {
         }
     }
 }
-
-afterEvaluate {
-    publishing {
-        publications.create<MavenPublication>("compose") {
-            //from(components::class.java)
-            groupId = "io.devmike.compose"
-            artifactId = "compose"
-            version = "1.1.1-alpha"
-            pom.packaging = "jar"
-            artifact("$buildDir/libs/compose.jar")
-        }
-    }
-}
+//
+//afterEvaluate {
+//    publishing {
+//        publications.create<MavenPublication>("compose") {
+//            //from(components::class.java)
+//            groupId = "io.devmike.compose"
+//            artifactId = "compose"
+//            version = "1.1.1-alpha"
+//            pom.packaging = "jar"
+//            artifact("$buildDir/libs/compose.jar")
+//        }
+//    }
+//}
 
 dependencies {
     val hiltVersion = 2.44
