@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,11 +16,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import io.devmike01.mapboxautocomplete.models.SearchProperty
-import io.devmike01.mapboxautocomplete.models.SearchTypes
-import io.devmike01.mapboxautocomplete.textfield.AutoCompleteTextField
+import io.devmike01.compose.models.SearchProperty
+import io.devmike01.compose.models.SearchTypes
+import io.devmike01.compose.textfield.AutoCompleteTextField
 import io.devmike01.mapboxautocompletetextfield.ui.theme.MapboxAutoCompleteTextFieldTheme
 
 class MainActivity : ComponentActivity() {

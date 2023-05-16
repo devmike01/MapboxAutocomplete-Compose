@@ -35,4 +35,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MapboxAutoCompleteTextField"
 include(":app")
-include(":mapboxautocomplete")
+include(":compose")

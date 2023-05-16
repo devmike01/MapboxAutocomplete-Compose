@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "io.devmike01.mapboxautocompletetextfield"
+        applicationId "io.devmike01.compose"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":mapboxautocomplete"))
+    implementation(project(":compose"))
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.activity:activity-compose:1.5.1'
