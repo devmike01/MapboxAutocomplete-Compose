@@ -7,7 +7,6 @@ plugins {
     id ("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("maven-publish")
 }
 
 
@@ -132,5 +131,8 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
+
+
+    //classpath ''
 }
 
