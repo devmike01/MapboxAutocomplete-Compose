@@ -8,11 +8,11 @@ plugins {
 }
 
 
-group = "io.devmike.compose"
-version = "1.2.4-alpha"
+group = "io.devmike01.compose"
+version = "1.2.4-alpha.1"
 
 android {
-    namespace = "io.devmike.compose"
+    namespace = "io.devmike01.compose"
     compileSdk = 33
 
     val mapboxToken: String = gradleLocalProperties(rootDir).getProperty("access_token")
