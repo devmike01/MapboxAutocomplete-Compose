@@ -1,7 +1,4 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-import com.android.build.gradle.internal.scope.publishArtifactToDefaultVariant
-import com.android.build.gradle.internal.utils.createPublishingInfoForLibrary
-import org.jetbrains.kotlin.asJava.classes.lazyPub
 
 plugins {
     id ("com.android.library")
@@ -12,7 +9,7 @@ plugins {
 
 
 group = "io.devmike.compose"
-version = "1.0.2-alpha"
+version = "1.0.5-alpha"
 
 android {
     namespace = "io.devmike.compose"

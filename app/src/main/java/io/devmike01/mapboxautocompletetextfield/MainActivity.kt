@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import io.devmike01.compose.models.SearchProperty
 import io.devmike01.compose.models.SearchTypes
 import io.devmike01.compose.textfield.AutoCompleteTextField
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     }
                     Column(verticalArrangement = Arrangement.Top) {
                         AutoCompleteTextField(autocomplete = mapboxAC,
-                            modifier = Modifier.wrapContentHeight().fillMaxWidth(),
+                            modifier = Modifier.height(400.dp).fillMaxWidth(),
                         onSelectItem = {
                             Toast.makeText(this@MainActivity,
                                 it.fullAddress ?: "", Toast.LENGTH_LONG).show()

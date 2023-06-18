@@ -2,10 +2,10 @@ package io.devmike01.compose
 
 import io.devmike01.compose.models.SearchProperty
 import io.devmike01.compose.models.SearchTypes
-import io.devmike01.compose.repo.MapboxService
-import io.devmike01.compose.textfield.AutoCompleteTextFieldController
 import io.devmike01.compose.repo.AutoCompleteTextFieldRepo
+import io.devmike01.compose.repo.MapboxService
 import io.devmike01.compose.repo.SuggestionResponse
+import io.devmike01.compose.textfield.AutoCompleteTextFieldController
 import io.devmike01.compose.textfield.AutocompleteState
 import io.devmike01.compose.textfield.CoreController
 import io.devmike01.compose.textfield.PlaceState

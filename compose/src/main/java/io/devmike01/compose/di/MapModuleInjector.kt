@@ -6,9 +6,9 @@ import io.devmike.compose.BuildConfig
 import io.devmike01.compose.di.MapModuleInjector.provideAutoCompleteTextFieldRepo
 import io.devmike01.compose.interceptors.HeaderInterceptor
 import io.devmike01.compose.interceptors.LogInterceptor
+import io.devmike01.compose.repo.AutoCompleteTextFieldRepo
 import io.devmike01.compose.repo.MapboxService
 import io.devmike01.compose.textfield.AutoCompleteTextFieldController
-import io.devmike01.compose.repo.AutoCompleteTextFieldRepo
 import io.devmike01.compose.textfield.AutocompleteState
 import io.devmike01.compose.textfield.CoreController
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +23,7 @@ object MapModuleInjector {
     fun provideIOContext(): CoroutineContext {
         return Dispatchers.IO
     }
+
 
     fun provideOkHttpClient(): OkHttpClient{
         return OkHttpClient.Builder()

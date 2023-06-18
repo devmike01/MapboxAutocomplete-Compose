@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
