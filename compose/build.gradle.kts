@@ -9,7 +9,7 @@ plugins {
 
 
 group = "io.devmike.compose"
-version = "1.0.5-alpha"
+version = "1.2.3-alpha"
 
 android {
     namespace = "io.devmike.compose"
@@ -27,7 +27,6 @@ android {
         minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        // consumerProguardFiles = "consumer-rules.pro"
     }
 
     buildTypes {
@@ -82,19 +81,6 @@ android {
         }
     }
 }
-//
-//afterEvaluate {
-//    publishing {
-//        publications.create<MavenPublication>("compose") {
-//            //from(components::class.java)
-//            groupId = "io.devmike.compose"
-//            artifactId = "compose"
-//            version = "1.1.1-alpha"
-//            pom.packaging = "jar"
-//            artifact("$buildDir/libs/compose.jar")
-//        }
-//    }
-//}
 
 dependencies {
     val hiltVersion = 2.44
