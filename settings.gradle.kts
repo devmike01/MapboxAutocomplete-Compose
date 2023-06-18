@@ -5,6 +5,7 @@ pluginManagement {
         mavenCentral()
         maven (url = "https://jitpack.io")
         maven ( url ="https://oss.sonatype.org/content/repositories/snapshots" )
+        mavenLocal()
     }
 }
 
@@ -29,6 +30,7 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
         }
+        mavenLocal()
     }
 }
 
@@ -37,4 +39,4 @@ dependencyResolutionManagement {
 //id("com.github.dcendents.android-maven")
 rootProject.name = "MapboxAutoCompleteTextField"
 include(":app")
-include(":compose")
+include(":mapboxautocomplete")

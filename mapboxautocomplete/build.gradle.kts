@@ -9,7 +9,7 @@ plugins {
 
 
 group = "io.devmike.compose"
-version = "1.2.3-alpha"
+version = "1.2.4-alpha"
 
 android {
     namespace = "io.devmike.compose"

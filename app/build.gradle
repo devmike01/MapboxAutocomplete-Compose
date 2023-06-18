@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":compose"))
+    implementation implementation(project(':mapboxautocomplete'))
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.activity:activity-compose:1.5.1'
@@ -64,5 +64,6 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation "androidx.compose.material3:material3:1.1.0"
+    //implementation("io.devmike.compose:compose:1.2.3-alpha")
 
 }
