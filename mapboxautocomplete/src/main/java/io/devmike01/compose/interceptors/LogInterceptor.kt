@@ -1,6 +1,6 @@
 package io.devmike01.compose.interceptors
 
-import io.devmike.compose.BuildConfig
+import io.devmike01.compose.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

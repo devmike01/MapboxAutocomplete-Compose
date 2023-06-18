@@ -2,7 +2,7 @@ package io.devmike01.compose.di
 
 import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.core.json.JsonReadFeature
-import io.devmike.compose.BuildConfig
+import io.devmike01.compose.BuildConfig
 import io.devmike01.compose.di.MapModuleInjector.provideAutoCompleteTextFieldRepo
 import io.devmike01.compose.interceptors.HeaderInterceptor
 import io.devmike01.compose.interceptors.LogInterceptor
